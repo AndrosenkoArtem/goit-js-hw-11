@@ -1,0 +1,39 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* выравнивание по горизонтали */
+}
+.photo-card {
+  width: 300px;
+  background-color: #ffff;
+  margin-top: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  img {
+    width: 100%;
+  }
+}
+.info {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.span {
+  color: rgb(226, 53, 53);
+}
+.info-item {
+}
+button.is-hidden {
+  display: none;
+}
+button > .spinner.is-hidden {
+  display: none;
+}
+.load-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
