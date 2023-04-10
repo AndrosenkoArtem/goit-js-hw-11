@@ -11,9 +11,13 @@
   margin-bottom: 20px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-
+  &__img {
+    height: 200px;
+  }
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 .info {

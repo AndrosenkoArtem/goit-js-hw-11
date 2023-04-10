@@ -25,22 +25,22 @@ class PixabeyApi {
   resetCurrentHits() {
     this.currentHits = 0;
   }
-  get getPage() {
+  getPage() {
     return this.page;
   }
-  set setPage(newPage) {
+  setPage(newPage) {
     this.page += newPage;
   }
-  get getCurrentHits() {
+  getCurrentHits() {
     return this.currentHits;
   }
-  set setCurrentHits(newCurrent) {
+  setCurrentHits(newCurrent) {
     this.currentHits += newCurrent;
   }
-  get getTotalHits() {
+  getTotalHits() {
     return this.totalHits;
   }
-  set setTotalHits(newtotal) {
+  setTotalHits(newtotal) {
     this.totalHits = newtotal;
   }
 }

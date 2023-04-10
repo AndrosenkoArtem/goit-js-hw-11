@@ -39,13 +39,13 @@ async function pixabeyResponse(inputValue) {
   try {
     loadMoreBtn.disable();
     const response = await pixabeyApi.fetchUrl(inputValue);
-    pixabeyApi.setCurrentHits = response.hits.length;
-    console.log(pixabeyApi.getPage);
+    pixabeyApi.setCurrentHits(response.hits.length);
+    console.log(pixabeyApi.getPage());
     console.log(response.totalHits);
-    console.log(pixabeyApi.getCurrentHits);
+    console.log(pixabeyApi.getCurrentHits());
 
     if (
-      pixabeyApi.getCurrentHits >= response.totalHits &&
+      pixabeyApi.getCurrentHits() >= response.totalHits &&
       response.totalHits !== 0
     ) {
       loadMoreBtn.hide();
@@ -77,7 +77,7 @@ async function renderCards(response) {
     .map(img => {
       return `
         <div class="photo-card">
-            <img src="${img.webformatURL}" alt="${img.tags}" loading="lazy" href="${img.largeImageURL}" />
+            <div class="photo-card__img"><img src="${img.webformatURL}" alt="${img.tags}" loading="lazy" href="${img.largeImageURL}" /></div>
             <div class="info">
                 <p class="info-item">
                 <b>Likes: <span class="span">${img.likes}</span></b>
@@ -106,12 +106,12 @@ async function createCard(response) {
   });
   lightbox.refresh();
   loadMoreBtn.enable();
-  if (pixabeyApi.getPage !== 1) {
+  if (pixabeyApi.getPage() !== 1) {
     scrollPage();
     return;
-  } else if (pixabeyApi.getTotalHits.totalHits !== 0) {
+  } else if (pixabeyApi.getTotalHits().totalHits !== 0) {
     Notiflix.Notify.info(
-      `Hooray! We found ${pixabeyApi.getTotalHits.totalHits} images.`
+      `Hooray! We found ${pixabeyApi.getTotalHits().totalHits} images.`
     );
   }
 }
@@ -121,7 +121,7 @@ async function onRenderMoreCards() {
     return;
   }
   loadMoreBtn.disable();
-  pixabeyApi.setPage = 1;
+  pixabeyApi.setPage(1);
   const images = await pixabeyResponse(formRef.elements.searchQuery.value);
   createCard(images);
 }
